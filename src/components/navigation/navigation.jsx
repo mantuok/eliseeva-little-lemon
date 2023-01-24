@@ -35,10 +35,10 @@ const NavigationList = {
 
 const Navigation = () => {
   const navigationItems = Object.values(NavigationList);
-  
+
   const renderNavigationItems = () => {
     return navigationItems.map((item) => {
-    return <li href={item.link}><a>{item.name}</a></li>
+    return <li key={item.id} href={item.link}><a>{item.name}</a></li>
     })
   };
 
