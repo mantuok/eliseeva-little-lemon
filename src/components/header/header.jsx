@@ -3,9 +3,8 @@ import Navigation from '../navigation/navigation';
 
 const Header = () => {
   return (
-    <header>
-      This is header
-      <img src='../img/logo-color.png' alt='Little Lemon Restaurant' />
+    <header className="container">
+      <img className="logo" src='../img/logo-color.png' alt='Little Lemon Restaurant' />
       <Navigation />
     </header>
   )

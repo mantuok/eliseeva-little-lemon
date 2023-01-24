@@ -38,13 +38,13 @@ const Navigation = () => {
 
   const renderNavigationItems = () => {
     return navigationItems.map((item) => {
-    return <li key={item.id} href={item.link}><a>{item.name}</a></li>
+    return <li key={item.id}><a href={item.link}>{item.name}</a></li>
     })
   };
 
   return (
     <nav>
-      <ul>
+      <ul className="navigation">
         {renderNavigationItems()}
       </ul>
     </nav>

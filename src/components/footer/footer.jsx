@@ -3,9 +3,8 @@ import Navigation from '../navigation/navigation';
 
 const Footer = () => {
   return (
-    <footer>
-      This is footer
-      <img src='../img/logo-white.png' alt='Little Lemon Restaurant' />
+    <footer className="container footer">
+      <img className="logo" src='../img/logo-white.png' alt='Little Lemon Restaurant' />
       <Navigation />
     </footer>
   )
