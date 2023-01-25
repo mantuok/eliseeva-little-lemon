@@ -1,9 +1,39 @@
 @mixin container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 1440px;
+  width: $max-desktop-width;
   margin: auto;
-  padding: 2em;
+  padding-right: 2em;
+  padding-left: 2em;
+
+  @media (max-width: $beforemax-desktop-width) {
+    width: 100%;
+  }
+
+  @media (max-width: $max-tablet-width) {
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+
+  @media (max-width: $max-mobile-width) {
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+  }
+}
+
+@mixin clear-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin clear-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+@mixin clear-button {
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: transparent;
+  border: none;
 }

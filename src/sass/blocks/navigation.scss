@@ -1,10 +1,8 @@
 .navigation {
+  @include clear-list;
+
   display: flex;
   flex-wrap: wrap;
-
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }
 
 .navigation li {
@@ -12,6 +10,19 @@
 }
 
 .navigation a {
-  text-decoration: none;
-  color: var(--font-basic);
+  @include clear-link;
+}
+
+.navigation__closed {
+  @include clear-button;
+
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  
+  width: 40px;
+  height: 40px;
+  
+  background-image: url("../../img/icon-menu-hamburger.svg"); 
+  background-repeat: no-repeat;
 }
