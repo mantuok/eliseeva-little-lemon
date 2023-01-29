@@ -35,26 +35,19 @@ const Navigation = (props) => {
     )
   };
 
-  const renderNavigationList = (type) => {
+  const renderNavigationList = () => {
     return (
-      <ul className={"navigation " + type.class}>
+      <ul className={"navigation-header"}>
         {renderNavigationItems()}
       </ul>
     )
   }
 
-  const renderSomething = () => {
-    return (
-      <button>Something</button>
-    )
-  }
-
   return (
     <nav>
-      {(type.type === NavigationType.Header.type) && renderNavigationList(NavigationType.Header)}
-      {(type.type === NavigationType.Footer.type) && renderNavigationList(NavigationType.Footer)}
-      {renderMenuButton(MenuButton.Closed)}
-      {isMobileMenuOpen && renderSomething()} 
+      {isMobileMenuOpen && renderNavigationList()}
+      {isMobile && !isMobileMenuOpen && renderMenuButton(MenuButton.Closed)}
+      {isMobile && isMobileMenuOpen && renderMenuButton(MenuButton.Open)}
     </nav>
   )
 }

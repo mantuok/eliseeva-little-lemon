@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <img className="logo" src='../img/logo-white.png' alt='Little Lemon Restaurant' />
-      <Navigation type={NavigationType.Footer}/>
+      {/* <Navigation type={NavigationType.Footer}/> */}
     </footer>
   )
 }

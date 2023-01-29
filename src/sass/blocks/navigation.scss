@@ -28,3 +28,17 @@
   background-image: url("../../img/icon-menu-hamburger.svg"); 
   background-repeat: no-repeat;
 }
+
+.navigation__open {
+  @include clear-button;
+
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  
+  width: 40px;
+  height: 40px;
+  
+  background-image: url("../../img/icon-menu-hamburger.svg"); 
+  background-repeat: no-repeat;
+}
