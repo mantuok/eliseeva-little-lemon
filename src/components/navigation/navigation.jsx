@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useMediaQuery} from 'react-responsive';
 import {
   NavigationList,
@@ -43,9 +43,14 @@ const Navigation = (props) => {
     )
   }
 
+  useEffect(() => {
+    if( isMobileMenuOpen) document.body.style.overflow = 'hidden';
+    if (!isMobileMenuOpen) document.body.style.overflow = 'scroll';
+  }, [isMobileMenuOpen])
+
   return (
     <nav>
-      {isMobileMenuOpen && renderNavigationList()}
+      {(!isMobile || isMobileMenuOpen) && renderNavigationList()}
       {isMobile && !isMobileMenuOpen && renderMenuButton(MenuButton.Closed)}
       {isMobile && isMobileMenuOpen && renderMenuButton(MenuButton.Open)}
     </nav>
