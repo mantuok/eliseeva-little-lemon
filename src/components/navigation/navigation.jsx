@@ -2,11 +2,13 @@ import React, {useState} from 'react';
 import {useMediaQuery} from 'react-responsive';
 import {
   NavigationList,
+  NavigationType,
   Viewport,
   MenuButton
 } from '../../const';
 
-const Navigation = () => {
+const Navigation = (props) => {
+  const {type} = props;
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false)
   const navigationItems = Object.values(NavigationList);
 
@@ -33,18 +35,26 @@ const Navigation = () => {
     )
   };
 
-  const renderNavigationList = () => {
+  const renderNavigationList = (type) => {
     return (
-      <ul className="navigation">
+      <ul className={"navigation " + type.class}>
         {renderNavigationItems()}
       </ul>
     )
   }
 
+  const renderSomething = () => {
+    return (
+      <button>Something</button>
+    )
+  }
+
   return (
     <nav>
-      {isMobile && renderMenuButton(MenuButton.Closed)}
-      {isMobileMenuOpen && renderNavigationList()}
+      {(type.type === NavigationType.Header.type) && renderNavigationList(NavigationType.Header)}
+      {(type.type === NavigationType.Footer.type) && renderNavigationList(NavigationType.Footer)}
+      {renderMenuButton(MenuButton.Closed)}
+      {isMobileMenuOpen && renderSomething()} 
     </nav>
   )
 }

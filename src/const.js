@@ -58,3 +58,14 @@ export const MenuButton = {
     class: `navigation__closed`
   }
 };
+
+export const NavigationType = {
+  Header: {
+    type: 'header',
+    class: 'navigation__header'
+  },
+  Footer: {
+    type: 'footer',
+    class: 'navigation__footer'
+  }
+}

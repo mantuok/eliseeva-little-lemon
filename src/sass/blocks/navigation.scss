@@ -1,6 +1,8 @@
 .navigation {
   @include clear-list;
 
+  position: relative;
+
   display: flex;
   flex-wrap: wrap;
 }
