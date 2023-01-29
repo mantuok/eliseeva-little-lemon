@@ -15,7 +15,7 @@ export const Viewport = {
   }
 };
 
-export const NavigationList = {
+export const NavigationItem = {
   Home: {
     id: 1,
     name: 'Home',
@@ -62,10 +62,10 @@ export const MenuButton = {
 export const NavigationType = {
   Header: {
     type: 'header',
-    class: 'navigation__header'
+    class: 'navigation-header'
   },
   Footer: {
     type: 'footer',
-    class: 'navigation__footer'
+    class: 'navigation-footer'
   }
 }
