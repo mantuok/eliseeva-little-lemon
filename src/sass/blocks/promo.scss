@@ -1,0 +1,14 @@
+.promo {
+  display: flex;
+  flex-direction: column;
+}
+
+.promo__heading {
+  margin: 0;
+  padding: 1em;
+
+  text-transform: uppercase;
+  color: var(--font-contrast);
+
+  background-color: var(--contrast);
+}
