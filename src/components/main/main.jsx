@@ -1,9 +1,10 @@
 import React from 'react';
+import Promo from '../promo/promo';
 
 const Main = () => {
   return (
     <main className="main">
-      This is main
+      <Promo />
     </main>
   )
 }
