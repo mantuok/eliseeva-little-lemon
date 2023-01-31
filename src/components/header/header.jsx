@@ -4,7 +4,7 @@ import NavigationHeader from '../navigation-header/navigation-header';
 const Header = () => {
   return (
     <header className="header">
-      <img className="logo" src='../img/logo-color.png' alt='Little Lemon Restaurant' />
+      <img className="logo logo__header" src='../img/logo-color.png' alt='Little Lemon Restaurant' />
       <NavigationHeader />
     </header>
   )

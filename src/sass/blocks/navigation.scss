@@ -42,6 +42,10 @@
   }
 }
 
+.navigation-header a:hover {
+  @include link-hover;
+}
+
 .navigation__closed {
   @include clear-button;
 
@@ -75,8 +79,18 @@
 
   display: flex;
   flex-direction: column;
+
+  margin-right: 1em;
 }
 
 .navigation-footer a {
   @include clear-link;
+
+  font-size: 10px;
+  color: var(--font-contrast);
 }
+
+.navigation-footer a:hover {
+  @include link-hover;
+}
+

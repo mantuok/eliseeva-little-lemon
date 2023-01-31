@@ -1,7 +1,13 @@
 .logo {
   margin-right: 2em;
 
-  
+  @media (max-width: $max-mobile-width) {
+    margin-right: 1em;
+    height: auto;
+  }
+}
+
+.logo__header {
   @media (max-width: $max-mobile-width) {
     margin-right: 1em;
     width: 50%;

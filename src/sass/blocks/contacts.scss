@@ -1,0 +1,26 @@
+.contacts {
+  display: flex;
+
+  font-size: 10px;
+  color: var(--font-contrast);
+}
+
+address {
+  margin-right: 2em;
+}
+
+.contacts ul {
+  @include clear-list;
+}
+
+.contacts li {
+  margin-bottom: 0.5em;
+}
+
+.contacts a {
+  @include clear-link;
+}
+
+.contacts a:hover {
+  @include link-hover;
+}

@@ -37,3 +37,8 @@
   background-color: transparent;
   border: none;
 }
+
+@mixin link-hover {
+  color: var(--font-basic);
+  text-decoration: underline;
+}

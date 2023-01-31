@@ -2,9 +2,21 @@
   @include container;
 
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 
+  padding-top: 2em;
+  padding-bottom: 2em;
 
   background-color: var(--contrast);
+
+  @media (max-width: $max-tablet-width) {
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+
+  @media (max-width: $max-mobile-width) {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+  }
 }
