@@ -1,11 +1,14 @@
 import React from 'react';
-import ReservationForm from '../reservation-form/reservation-form';
+import FormStepOne from '../form-step-one/form-step-one';
+import FormStepTwo from '../form-step-two/form-step-two';
 
 const Reservation = () => {
   return (
     <section className="reservation">
       <h3 className="reservation__heading">Fill out the form to make a reservation</h3>
-      <ReservationForm />
+      <h3 className="form__heading">Step 1 - Enter dinner details</h3>
+      <FormStepOne />
+      <FormStepTwo />
     </section>
   )
 }

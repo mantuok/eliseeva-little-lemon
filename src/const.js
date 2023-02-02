@@ -69,3 +69,26 @@ export const NavigationType = {
     class: 'navigation-footer'
   }
 }
+
+export const Occasion = {
+  default: {
+    label: 'Occasion',
+    value: 'default',
+    icon: ''
+  },
+  birthday : {
+    label: 'Birthday',
+    value: 'birthday',
+    icon: ''
+  },
+  anniversary : {
+    label: 'Anniversary',
+    value: 'anniversary',
+    icon: ''
+  },
+  engagement : {
+    label: 'Engagement',
+    value: 'engagement',
+    icon: ''
+  },
+}
