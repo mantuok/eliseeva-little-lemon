@@ -6,7 +6,6 @@ const Reservation = () => {
   return (
     <section className="reservation">
       <h3 className="reservation__heading">Fill out the form to make a reservation</h3>
-      <h3 className="form__heading">Step 1 - Enter dinner details</h3>
       <FormStepOne />
       <FormStepTwo />
     </section>
