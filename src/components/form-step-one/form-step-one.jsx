@@ -46,14 +46,20 @@ const FormStepOne = () => {
           placeholder={Occasion.default.label}
         />
       </label>
-      <fieldset className="form__field">
-        <legend className="form__label">Select number of guests</legend>
-        <input type="radio" id="one-two" name="guests" value="one-two" checked />
-        <label htmlFor="one-two">1 - 2</label>
-        <input type="radio" id="three-six" name="guests" value="three-six" />
-        <label htmlFor="one-two">3 - 6</label>
-        <input type="radio" id="more-than-six" name="guests" value="more-than-six" />
-        <label htmlFor="one-two">more than 6</label>
+      <fieldset className="form__field form__field--radio">
+        <legend className="form__label form__label--radio">Select number of guests</legend>
+        <label htmlFor="one-two">
+          <input className="form__radio__input" type="radio" id="one-two" name="guests" value="one-two" defaultChecked />
+          <span className="form__radio__label">1 - 2</span>
+        </label>
+        <label htmlFor="three-six">
+          <input className="form__radio__input" type="radio" id="three-six" name="guests" value="three-six" />
+          <span className="form__radio__label">3 - 6</span>
+        </label>
+        <label htmlFor="more-than-six">
+          <input className="form__radio__input" type="radio" id="more-than-six" name="guests" value="more-than-six" />
+          <span className="form__radio__label">more than 6</span>
+        </label>
       </fieldset>
       <button className="button button--next">Next</button>
     </form>

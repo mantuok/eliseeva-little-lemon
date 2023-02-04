@@ -28,6 +28,8 @@
   font-size: 20px;
 }
 
+// Datepicker
+
 .form__datepicker {
   width: 25%;
   height: 3em;
@@ -74,6 +76,8 @@
   background-image: url("../../img/icon-asterisk.svg"); 
   background-repeat: no-repeat;
 }
+
+// Timepicker
 
 .form__label--timepicker {
   position: relative;
@@ -129,12 +133,14 @@
   background-repeat: no-repeat;
 }
 
+// Select
+
 .form__select {
   width: 25%;
   height: 3em;
   padding-top: 0.5em;
   padding-right: 3em;
-  padding-bottom: 0.5em;
+  padding-bottom: 3em;
   padding-left: 4em;
 
   font-weight: 800;
@@ -148,8 +154,8 @@
 .form__select::before {
   content: "";
   position: absolute;
-  top: 13px;
-  left: 13px;
+  top: 17px;
+  left: 17px;
 
   width: 25px;
   height: 22px;
@@ -186,3 +192,67 @@
   color: var(--font-contrast);
   background-color: var(--contrast);
 }
+
+// Radio
+
+.form__field--radio {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+
+  margin-right: 0;
+  margin-left: 0;
+  padding: 0;
+
+  border: none;
+}
+
+.form__label--radio {
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 1em;
+  margin-left: 0;
+  padding: 0;
+}
+
+.form__radio__label {
+  position: relative;
+  padding-left: 2em;
+  font-size: 20px;
+
+  cursor: pointer;
+}
+
+.form__radio__label::before,
+.form__radio__input:checked + .form__radio__label::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+
+  width: 25px;
+  height: 25px;
+
+  background-repeat: no-repeat;
+
+  cursor: pointer;
+}
+
+.form__radio__label::before {
+  background-image: url("../../img/icon-radio-unchecked.svg");
+}
+
+.form__radio__input:checked + .form__radio__label::before  {
+  background-image: url("../../img/icon-radio-checked.svg"); 
+}
+
+.form__radio__input {
+  position: relative;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+
+
