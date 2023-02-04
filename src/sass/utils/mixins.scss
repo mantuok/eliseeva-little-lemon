@@ -42,3 +42,38 @@
   color: var(--font-basic);
   text-decoration: underline;
 }
+
+@mixin button {
+  width: 295px;
+  height: 55px;
+
+  border-radius: 8px;
+
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--font-basic);
+
+  background-color: var(--button-basic);
+
+  cursor: pointer;
+}
+
+@mixin button-hover {
+  color: var(--font-additional);
+}
+
+@mixin button-active {
+  color: var(--font-contrast);
+  background-color: var(--button-contrast);
+}
+
+@mixin asterisk {
+  content: "";
+  position: absolute;
+
+  width: 10px;
+  height: 10px;
+
+  background-image: url("../../img/icon-asterisk.svg"); 
+  background-repeat: no-repeat;
+}

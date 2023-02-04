@@ -4,6 +4,7 @@ import TimePicker from 'react-time-picker';
 import Select from 'react-select'
 import "react-datepicker/dist/react-datepicker.css";
 import {Occasion} from '../../const';
+import MandatoryHint from '../mandatory-hint/mandatory-hint';
 
 const FormStepOne = () => {
   const [startdate, setStartDate] = useState();
@@ -61,6 +62,7 @@ const FormStepOne = () => {
           <span className="form__radio__label">more than 6</span>
         </label>
       </fieldset>
+      <MandatoryHint />
       <button className="button button--next">Next</button>
     </form>
   )

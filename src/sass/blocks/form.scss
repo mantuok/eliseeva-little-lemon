@@ -65,16 +65,10 @@
 }
 
 .form__label--datepicker::after {
-  content: "";
-  position: absolute;
+  @include asterisk;
+
   top: 0px;
   left: 105px;
-
-  width: 10px;
-  height: 10px;
-
-  background-image: url("../../img/icon-asterisk.svg"); 
-  background-repeat: no-repeat;
 }
 
 // Timepicker
@@ -84,16 +78,10 @@
 }
 
 .form__label--timepicker::after {
-  content: "";
-  position: absolute;
+  @include asterisk;
+
   top: 0px;
   left: 105px;
-
-  width: 10px;
-  height: 10px;
-
-  background-image: url("../../img/icon-asterisk.svg"); 
-  background-repeat: no-repeat;
 }
 
 .form__timepicker {
@@ -254,5 +242,57 @@
   width: 0;
 }
 
+// Buttons 
+
+.button {
+  @include clear-button;
+  @include button;
+
+  margin-bottom: 2em;
+}
+
+.button--back {
+  background-color: var(--button-additional);
+}
+
+.button:hover {
+  @include button-hover;
+}
+
+.button:active {
+  @include button-active;
+}
+
+// Contact details 
+
+.form__first-name,
+.form__last-name,
+.form__phone-number {
+  width: 25%;
+  height: 3em;
+
+  font-family: inherit;
+  font-size: inherit;
+
+  border: 1px solid var(--contrast);
+  border-radius: 8px;
+}
+
+.form-label--first-name,
+.form-label--last-name,
+.form-label--phone-number {
+  position: relative;
+}
+
+.form-label--first-name::after,
+.form-label--last-name::after {
+  @include asterisk;
+  left: 100px;
+}
+
+.form-label--phone-number::after {
+  @include asterisk;
+  left: 137px;
+}
 
 
