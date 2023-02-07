@@ -15,11 +15,27 @@
   padding-left: 2em;
 
   background-color: var(--additional);
+
+  @media (max-width: $max-tablet-width) {
+    font-size: 16px;
+  }
+
+  @media (max-width: $max-mobile-width) {
+    font-size: 14px;
+  }
 }
 
 .form__heading {
   font-size: 20px;
   font-weight: 700;
+
+  @media (max-width: $max-tablet-width) {
+    font-size: 16px;
+  }
+
+  @media (max-width: $max-mobile-width) {
+    font-size: 14px;
+  }
 }
 
 .form__field {
@@ -33,12 +49,20 @@
 
 .form__label {
   font-size: 20px;
+
+  @media (max-width: $max-tablet-width) {
+    font-size: 16px;
+  }
+
+  @media (max-width: $max-mobile-width) {
+    font-size: 14px;
+  }
 }
 
 // Datepicker
 
 .form__datepicker {
-  width: 25%;
+  width: 290px;
   height: 3em;
 
   font-size: inherit;
@@ -92,7 +116,7 @@
 }
 
 .form__timepicker {
-  width: 25%;
+  width: 290px;
   height: 3em;
 
   font-size: inherit;
@@ -131,7 +155,7 @@
 // Select
 
 .form__select {
-  width: 25%;
+  width: 290px;
   height: 3em;
   padding-top: 0.5em;
   padding-right: 3em;
@@ -217,6 +241,14 @@
   font-size: 20px;
 
   cursor: pointer;
+
+  @media (max-width: $max-tablet-width) {
+    font-size: 16px;
+  }
+
+  @media (max-width: $max-mobile-width) {
+    font-size: 14px;
+  }
 }
 
 .form__radio__label::before,
@@ -255,8 +287,6 @@
 .button {
   @include clear-button;
   @include button;
-
-  margin-bottom: 2em;
 }
 
 .button--back {
@@ -275,6 +305,13 @@
   display: grid;
   grid-template-columns: max-content max-content;
   gap: 1em;
+
+  margin-bottom: 2em;
+
+  @media (max-width: $max-tablet-width) {
+    grid-template-columns: max-content;
+    grid-template-rows: max-content max-content;
+  }
 }
 
 // Contact details 
@@ -282,7 +319,7 @@
 .form__first-name,
 .form__last-name,
 .form__phone-number {
-  width: 25%;
+  width: 290px;
   height: 3em;
 
   font-family: inherit;
@@ -310,7 +347,7 @@
 }
 
 .form__textarea {
-  width: 50%;
+  width: 390px;
 
   font-size: inherit;
   font-family: inherit;

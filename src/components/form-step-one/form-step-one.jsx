@@ -65,7 +65,9 @@ const FormStepOne = () => {
         </fieldset>
         <MandatoryHint />
       </div>
-      <button className="button button--next">Next</button>
+      <div className="button__wrapper">
+        <button className="button button--next">Next</button>
+      </div>
     </form>
   )
 }

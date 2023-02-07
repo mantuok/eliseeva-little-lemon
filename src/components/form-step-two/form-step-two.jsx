@@ -20,10 +20,10 @@ const FormStepTwo = () => {
         <label className="form__field">
           <span className="form__label form-label--phone-number">Phone number</span>
           <span className="visually-hidden">Mandatory field</span>
-          <PatternFormat 
-            className="form__phone-number" 
-            name=""  
-            placeholder="Enter phone number..." 
+          <PatternFormat
+            className="form__phone-number"
+            name=""
+            placeholder="Enter phone number..."
             id=""
             format="###-###-####"
             pattern="[+]{1}[0-9]{1} [0-9]{3}-[0-9]{3}-[0-9]{4}"

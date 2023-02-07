@@ -13,4 +13,12 @@
   color: var(--font-contrast);
 
   background-color: var(--contrast);
+
+  @media (max-width: $max-tablet-width) {
+    font-size: 16px;
+  }
+
+  @media (max-width: $max-mobile-width) {
+    font-size: 14px;
+  }
 }
