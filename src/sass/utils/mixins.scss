@@ -7,16 +7,6 @@
   @media (max-width: $beforemax-desktop-width) {
     width: 100%;
   }
-
-  @media (max-width: $max-tablet-width) {
-    // padding-left: 1em;
-    // padding-right: 1em;
-  }
-
-  @media (max-width: $max-mobile-width) {
-    // padding-left: 0.3em;
-    // padding-right: 0.3em;
-  }
 }
 
 @mixin clear-list {

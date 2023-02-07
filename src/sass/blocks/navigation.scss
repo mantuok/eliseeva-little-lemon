@@ -1,20 +1,18 @@
 .navigation-header {
   @include clear-list;
 
-  position: relative;
-
   display: flex;
   flex-wrap: wrap;
 
   @media (max-width: $max-mobile-width) {
     position: absolute;
     z-index: 1;
-    top: 16vw;
+    top: 100%;
     left: 0px;
 
     align-items: center;
-  
-    width: 100vw;
+
+    width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
 
@@ -51,11 +49,11 @@
 
   position: absolute;
   top: 3vw;
-  right: 10vw;
-  
+  right: 11vw;
+
   width: 30px;
   height: 30px;
-  
+
   background-image: url("../../img/icon-menu-hamburger.svg"); 
   background-repeat: no-repeat;
 }
@@ -65,11 +63,11 @@
 
   position: absolute;
   top: 1vw;
-  right: 8vw;
-  
+  right: 11vw;
+
   width: 40px;
   height: 40px;
-  
+
   background-image: url("../../img/icon-menu-cross.svg"); 
   background-repeat: no-repeat;
 }

@@ -347,13 +347,22 @@
 }
 
 .form__textarea {
-  width: 390px;
+  width: 580px;
 
   font-size: inherit;
   font-family: inherit;
 
   border: 1px solid grey;
   border-radius: 8px;
+
+  @media (max-width: $max-tablet-width) {
+    width: 400px;
+  }
+
+  @media (max-width: $max-mobile-width) {
+    width: 290px;
+    font-size: 14px;
+  }
 }
 
 
