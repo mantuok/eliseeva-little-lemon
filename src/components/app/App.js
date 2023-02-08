@@ -1,15 +1,22 @@
 import React from 'react';
-import Header from '../header/header';
-import Main from '../main/main';
-import Footer from '../footer/footer';
+import {createBrowserRouter, RouterProvider} from 'react-router-dom';
+import Page from '../page/page';
+import PageInProgress from '../page-in-progress/page-in-progress';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Page />,
+  },
+  {
+    path: '/page-in-progress',
+    element: <PageInProgress />
+  }
+]);
 
 function App() {
   return (
-    <React.Fragment>
-      <Header /> 
-      <Main />
-      <Footer />
-    </React.Fragment>
+    <RouterProvider router={router} />
   );
 }
 

@@ -19,32 +19,32 @@ export const NavigationItem = {
   Home: {
     id: 1,
     name: 'Home',
-    link: '#'
+    link: '/'
   },
   About: {
     id: 2,
     name: 'About',
-    link: '#'
+    link: '/page-in-progress'
   },
   Menu: {
     id: 3,
     name: 'Menu',
-    link: '#'
+    link: '/page-in-progress'
   },
   Reservation: {
     id: 4,
     name: 'Reservation',
-    link: '#'
+    link: '/page-in-progress'
   },
   Order: {
     id: 5,
     name: 'Order online',
-    link: '#'
+    link: '/page-in-progress'
   },
   Login: {
     id: 6,
     name: 'Login',
-    link: '#'
+    link: '/page-in-progress'
   }
 };
 
