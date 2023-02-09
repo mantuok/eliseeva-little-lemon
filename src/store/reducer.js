@@ -1,8 +1,8 @@
 import {ActionType} from './action';
-import {reservationStep} from  '../const';
+import {ReservationStep} from  '../const';
 
 const initialState = {
-  currentStep: reservationStep.StepOne,
+  currentStep: ReservationStep.StepOne,
   date: '',
   time: '',
   occasion: '',

@@ -1,14 +1,24 @@
 import React, {useState} from 'react';
+import {useDispatch} from 'react-redux';
+import {ActionCreator} from '../../store/action';
 import DatePicker from 'react-datepicker';
 import TimePicker from 'react-time-picker';
 import Select from 'react-select'
 import "react-datepicker/dist/react-datepicker.css";
-import {Occasion} from '../../const';
+import {
+  Occasion,
+  ReservationStep
+} from '../../const';
 import MandatoryHint from '../mandatory-hint/mandatory-hint';
 
 const FormStepOne = () => {
+  const dispatch = useDispatch();
   const [startdate, setStartDate] = useState();
   const occasionList = Object.values(Occasion.options);
+
+  const handleNextButtonClick = () => {
+    dispatch(ActionCreator.setCurrentStep(ReservationStep.StepTwo))
+  }
 
   return (
     <form className="form">
@@ -66,7 +76,12 @@ const FormStepOne = () => {
         <MandatoryHint />
       </div>
       <div className="button__wrapper">
-        <button className="button button--next">Next</button>
+        <button 
+          className="button button--next"
+          onClick={handleNextButtonClick}
+        >
+          Next
+        </button>
       </div>
     </form>
   )

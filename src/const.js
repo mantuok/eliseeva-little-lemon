@@ -70,7 +70,7 @@ export const NavigationType = {
   }
 }
 
-export const reservationStep = {
+export const ReservationStep = {
   StepOne: 'step-one',
   StepTwo: 'step-two'
 }

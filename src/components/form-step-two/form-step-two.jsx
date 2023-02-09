@@ -1,8 +1,19 @@
 import React from 'react';
+import {useDispatch} from 'react-redux';
+import {ActionCreator} from '../../store/action';
 import MandatoryHint from '../mandatory-hint/mandatory-hint';
 import { PatternFormat } from 'react-number-format';
+import {
+  ReservationStep
+} from '../../const';
 
 const FormStepTwo = () => {
+  const dispatch = useDispatch();
+
+  const handleBackButtonClick = () => {
+    dispatch(ActionCreator.setCurrentStep(ReservationStep.StepOne))
+  };
+
   return (
     <form className="form">
       <h3 className="form__heading">Step 2 - Enter contact details</h3>
@@ -38,7 +49,12 @@ const FormStepTwo = () => {
         <MandatoryHint />
       </div>
       <div className="button__wrapper">
-        <button className="button button--back">Back</button>
+        <button 
+          className="button button--back"
+          onClick={handleBackButtonClick}
+        >
+          Back
+        </button>
         <button className="button button--submit">Submit</button>
       </div>
     </form>
