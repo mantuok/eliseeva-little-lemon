@@ -24,27 +24,27 @@ export const NavigationItem = {
   About: {
     id: 2,
     name: 'About',
-    link: '/page-in-progress'
+    link: '/about'
   },
   Menu: {
     id: 3,
     name: 'Menu',
-    link: '/page-in-progress'
+    link: '/menu'
   },
   Reservation: {
     id: 4,
-    name: 'Reservation',
-    link: '/page-in-progress'
+    name: 'Reserve table',
+    link: '/reserve-table'
   },
   Order: {
     id: 5,
     name: 'Order online',
-    link: '/page-in-progress'
+    link: '/order-online'
   },
   Login: {
     id: 6,
     name: 'Login',
-    link: '/page-in-progress'
+    link: '/login'
   }
 };
 

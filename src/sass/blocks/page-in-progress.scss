@@ -1,4 +1,6 @@
 .page-in-progress {
+  @include container;
+  
   padding: 2em;
   font-size: 24px;
   font-weight: 900;
