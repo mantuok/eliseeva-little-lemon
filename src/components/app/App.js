@@ -6,16 +6,11 @@ import Menu from '../menu/menu';
 import OrderOnline from '../order-online/order-online';
 import ReserveTable from '../reserve-table/reserve-table';
 import Login from '../login/login';
-import PageInProgress from '../page-in-progress/page-in-progress';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Home />,
-  },
-  {
-    path: '/page-in-progress',
-    element: <PageInProgress />
   },
   {
     path: '/about',

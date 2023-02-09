@@ -70,6 +70,11 @@ export const NavigationType = {
   }
 }
 
+export const reservationStep = {
+  StepOne: 'step-one',
+  StepTwo: 'step-two'
+}
+
 export const Occasion = {
   default: {
     label: 'Occasion',
