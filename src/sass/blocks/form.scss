@@ -119,27 +119,16 @@
   width: 290px;
   height: 3em;
 
+  font-family: inherit;
   font-size: inherit;
 
   background-color: var(--basic);
-}
 
-.form__timepicker input {
-  font-family: inherit;
-  font-size: inherit;
-}
-
-.react-time-picker {
-  position: relative;
-
+  border: 1px solid grey;
   border-radius: 8px;
 }
 
-.react-time-picker__wrapper {
-  border-radius: 8px;
-}
-
-.react-time-picker::after {
+.form__field--timepicker .react-datepicker-wrapper::before {
   content: "";
   position: absolute;
   top: 13px;
@@ -150,6 +139,10 @@
 
   background-image: url("../../img/icon-clock.svg"); 
   background-repeat: no-repeat;
+}
+
+.react-datepicker__time-list-item--disabled {
+  display: none;
 }
 
 // Select
