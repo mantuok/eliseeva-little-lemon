@@ -1,12 +1,13 @@
 import {ActionType} from './action';
 import {ReservationStep} from  '../const';
+import {Occasion} from '../const';
 
 const initialState = {
   currentStep: ReservationStep.StepOne,
   date: '',
   time: '',
-  occasion: '',
-  guests: 0,
+  occasion: Occasion.default.label,
+  guests: '',
   fistName: '',
   lastName: '',
   phone: '',

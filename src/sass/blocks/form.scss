@@ -358,4 +358,22 @@
   }
 }
 
+// Confirmation
+
+.form__confirmation {
+  @include container;
+
+  padding: 2em;
+  font-size: 24px;
+  font-weight: 900;
+
+  @media (max-width: $max-tablet-width) {
+    font-size: 16px;
+  }
+
+  @media (max-width: $max-mobile-width) {
+    font-size: 14px;
+  }
+}
+
 

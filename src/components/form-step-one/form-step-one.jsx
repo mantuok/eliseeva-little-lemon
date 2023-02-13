@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {ActionCreator} from '../../store/action';
 import DatePicker from 'react-datepicker';
 import {addDays, setHours, setMinutes} from 'date-fns';
@@ -13,17 +13,21 @@ import MandatoryHint from '../mandatory-hint/mandatory-hint';
 
 const FormStepOne = () => {
   const dispatch = useDispatch();
-  const [startdate, setStartDate] = useState();
+  const storedDate = useSelector((state) => state.date);
+  const storedTime = useSelector((state) => state.time);
+  const storedOccasion = useSelector((state) => state.occasion);
+  const storedGuests = useSelector((state) => state.guests);
   const [formData, setFormData] = useState({
-    date: '',
-    time: '',
-    occasion: '',
-    guests: 'one-two'
+    date: storedDate,
+    time: storedTime,
+    occasion: storedOccasion,
+    guests: storedGuests
   });
   const occasionList = Object.values(Occasion.options);
 
   const handleNextButtonClick = () => {
-    dispatch(ActionCreator.setCurrentStep(ReservationStep.StepTwo))
+    dispatch(ActionCreator.setDinnerData(formData));
+    dispatch(ActionCreator.setCurrentStep(ReservationStep.StepTwo));
   };
 
   // const handleDateChange = (data, evt) => {
@@ -83,7 +87,7 @@ const FormStepOne = () => {
             classNamePrefix="react-select"
             options={occasionList} 
             unstyled={true}
-            placeholder={Occasion.default.label}
+            value={{label: formData.occasion}}
             onChange={(evt) => setFormData({
               ...formData,
               occasion: evt.value

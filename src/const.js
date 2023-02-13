@@ -72,7 +72,8 @@ export const NavigationType = {
 
 export const ReservationStep = {
   StepOne: 'step-one',
-  StepTwo: 'step-two'
+  StepTwo: 'step-two',
+  Confirmation: 'confirmation'
 }
 
 export const Occasion = {
@@ -83,15 +84,15 @@ export const Occasion = {
   options: {
     birthday : {
       label: 'Birthday',
-      value: 'birthday',
+      value: 'Birthday',
     },
     anniversary : {
       label: 'Anniversary',
-      value: 'anniversary',
+      value: 'Anniversary',
     },
     engagement : {
       label: 'Engagement',
-      value: 'engagement',
+      value: 'Engagement',
     },
   },
 }
