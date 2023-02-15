@@ -361,13 +361,14 @@
 // Confirmation
 
 .form__confirmation {
-  @include container;
+  margin-bottom: 2em;
 
-  padding: 2em;
-  font-size: 24px;
-  font-weight: 900;
+  font-size: 20px;
+  font-weight: 700;
 
   @media (max-width: $max-tablet-width) {
+    margin-bottom: 1em;
+    
     font-size: 16px;
   }
 

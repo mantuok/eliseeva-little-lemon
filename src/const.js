@@ -95,4 +95,10 @@ export const Occasion = {
       value: 'Engagement',
     },
   },
+};
+
+export const GuestNumber = {
+  oneTwo: 'one-two',
+  threeSix: 'three-six',
+  moreThanSix: 'more-than-six'
 }

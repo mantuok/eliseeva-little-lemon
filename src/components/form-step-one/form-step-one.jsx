@@ -7,7 +7,8 @@ import Select from 'react-select'
 import "react-datepicker/dist/react-datepicker.css";
 import {
   Occasion,
-  ReservationStep
+  ReservationStep,
+  GuestNumber
 } from '../../const';
 import MandatoryHint from '../mandatory-hint/mandatory-hint';
 
@@ -51,6 +52,7 @@ const FormStepOne = () => {
             id="date"
             className="form__datepicker"
             placeholderText="Date"
+            dateFormat="yyyy/MM/dd"
             selected={formData.date} 
             onChange={(date) => setFormData({
               ...formData,
@@ -97,48 +99,48 @@ const FormStepOne = () => {
         <fieldset className="form__field form__field--radio">
           <legend className="form__label form__label--radio">Select number of guests</legend>
           <label htmlFor="one-two">
-            <input 
-              className="form__radio__input" 
-              type="radio" 
-              id="one-two" 
-              name="guests" 
-              value="one-two" 
+            <input
+              className="form__radio__input"
+              type="radio"
+              id="one-two"
+              name="guests"
+              value="one-two"
               onChange={(evt) => setFormData({
                 ...formData,
                 guests: evt.target.value
               })
             }
-              checked={formData.guests === "one-two"}
+              checked={formData.guests === GuestNumber.oneTwo}
             />
             <span className="form__radio__label">1 - 2</span>
           </label>
           <label htmlFor="three-six">
-            <input 
-              className="form__radio__input" 
-              type="radio" 
-              id="three-six" 
-              name="guests" 
-              value="three-six" 
+            <input
+              className="form__radio__input"
+              type="radio"
+              id="three-six"
+              name="guests"
+              value="three-six"
               onChange={(evt) => setFormData({
                 ...formData,
                 guests: evt.target.value
               })}
-              checked={formData.guests === "three-six"}
+              checked={formData.guests === GuestNumber.threeSix}
             />
             <span className="form__radio__label">3 - 6</span>
           </label>
           <label htmlFor="more-than-six">
-            <input 
-              className="form__radio__input" 
-              type="radio" 
-              id="more-than-six" 
-              name="guests" 
-              value="more-than-six" 
+            <input
+              className="form__radio__input"
+              type="radio"
+              id="more-than-six"
+              name="guests"
+              value="more-than-six"
               onChange={(evt) => setFormData({
                 ...formData,
                 guests: evt.target.value
               })}
-              checked={formData.guests === "more-than-six"}
+              checked={formData.guests === GuestNumber.moreThanSix}
             />
             <span className="form__radio__label">more than 6</span>
           </label>

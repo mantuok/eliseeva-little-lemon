@@ -23,7 +23,7 @@ const Reservation = () => {
 
   return (
     <section className="reservation">
-      <h3 className="reservation__heading">Fill out the form to make a reservation</h3>
+      <h3 className="reservation__heading">Complete the form to make a reservation</h3>
       {renderStep()}
     </section>
   )

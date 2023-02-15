@@ -1,14 +1,17 @@
 import {ActionType} from './action';
 import {ReservationStep} from  '../const';
-import {Occasion} from '../const';
+import {
+  Occasion,
+  GuestNumber
+} from '../const';
 
 const initialState = {
   currentStep: ReservationStep.StepOne,
   date: '',
   time: '',
   occasion: Occasion.default.label,
-  guests: '',
-  fistName: '',
+  guests: GuestNumber.oneTwo,
+  firstName: '',
   lastName: '',
   phone: '',
   comment: '',
@@ -32,7 +35,7 @@ export const reducer =  (state = initialState, action) => {
     case ActionType.SET_CONTACT_DATA:
       return {
         ...state,
-        fistName: action.payload.fistName,
+        firstName: action.payload.firstName,
         lastName: action.payload.lastName,
         phone: action.payload.phone,
         comment: action.payload.comment,
@@ -42,9 +45,9 @@ export const reducer =  (state = initialState, action) => {
         ...state,
         date: '',
         time: '',
-        occasion: '',
-        guests: 0,
-        fistName: '',
+        occasion: Occasion.default.label,
+        guests: GuestNumber.oneTwo,
+        firstName: '',
         lastName: '',
         phone: '',
         comment: '',
