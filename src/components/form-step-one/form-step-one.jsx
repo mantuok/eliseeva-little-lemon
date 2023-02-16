@@ -8,7 +8,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import {
   Occasion,
   ReservationStep,
-  GuestNumber
+  GuestNumber,
+  Times
 } from '../../const';
 import MandatoryHint from '../mandatory-hint/mandatory-hint';
 
@@ -18,6 +19,7 @@ const FormStepOne = () => {
   const storedTime = useSelector((state) => state.time);
   const storedOccasion = useSelector((state) => state.occasion);
   const storedGuests = useSelector((state) => state.guests);
+  const reservations = useSelector((state) => state.reservations);
   const [formData, setFormData] = useState({
     date: storedDate,
     time: storedTime,
@@ -25,6 +27,16 @@ const FormStepOne = () => {
     guests: storedGuests
   });
   const occasionList = Object.values(Occasion.options);
+
+  const renderSelectOptions = () => {
+    return Times.map((time) => {
+      if (reservations.includes(formData.date + time)) {
+        return ''
+      } else {
+        return <option key={time} value={time}>{time}</option>
+      }
+    })
+  };
 
   const handleNextButtonClick = () => {
     dispatch(ActionCreator.setDinnerData(formData));
@@ -65,22 +77,18 @@ const FormStepOne = () => {
         <label className="form__field form__field--timepicker">
           <span className="form__label form__label--timepicker">Select time</span>
           <span className="visually-hidden">Mandatory field</span>
-          <DatePicker
-            portalId="root-portal"
+          <select 
             className="form__timepicker"
-            placeholderText="Time"
-            selected={formData.time}
-            onChange={(date) => setFormData({
+            placeholder="Time"
+            value={formData.time}
+            onChange={(evt) => setFormData({
               ...formData,
-              time: date
+              time: evt.target.value
             })}
-            showTimeSelect
-            showTimeSelectOnly
-            dateFormat="h:mm aa"
-            timeIntervals={30}
-            minTime={setHours(setMinutes(new Date(), 0), 9)}
-            maxTime={setHours(setMinutes(new Date(), 0), 23)}
-          />
+          >
+            <option value="" disabled hidden>Time</option>
+            {renderSelectOptions()}
+          </select>
         </label>
         <label className="form__field">
           <span className="form__label">Select occasion</span>

@@ -64,6 +64,7 @@
 .form__datepicker {
   width: 290px;
   height: 3em;
+  padding: 0.3em;
 
   font-size: inherit;
   font-family: inherit;
@@ -116,34 +117,38 @@
 }
 
 .form__timepicker {
+  position: relative;
+
   width: 290px;
   height: 3em;
+  padding: 0.3em;
 
   font-family: inherit;
   font-size: inherit;
 
   background-color: var(--basic);
+  background-image: url("../../img/icon-clock.svg");
+  background-repeat: no-repeat;
+  background-position: 15.6em 0.7em;
 
   border: 1px solid grey;
   border-radius: 8px;
+
+  appearance: none;
 }
 
-.form__field--timepicker .react-datepicker-wrapper::before {
-  content: "";
-  position: absolute;
-  top: 13px;
-  left: 250px;
+// .form__timepicker::after {
+//   content: "";
+//   position: absolute;
+//   top: 13px;
+//   left: 250px;
 
-  width: 25px;
-  height: 25px;
+//   width: 25px;
+//   height: 25px;
 
-  background-image: url("../../img/icon-clock.svg"); 
-  background-repeat: no-repeat;
-}
-
-.react-datepicker__time-list-item--disabled {
-  display: none;
-}
+//   background-image: url("../../img/icon-clock.svg"); 
+//   background-repeat: no-repeat;
+// }
 
 // Select
 
@@ -314,6 +319,7 @@
 .form__phone-number {
   width: 290px;
   height: 3em;
+  padding: 0.3em;
 
   font-family: inherit;
   font-size: inherit;
@@ -341,6 +347,7 @@
 
 .form__textarea {
   width: 580px;
+  padding: 0.3em;
 
   font-size: inherit;
   font-family: inherit;
@@ -368,7 +375,7 @@
 
   @media (max-width: $max-tablet-width) {
     margin-bottom: 1em;
-    
+
     font-size: 16px;
   }
 

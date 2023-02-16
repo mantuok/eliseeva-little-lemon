@@ -2,6 +2,7 @@ export const ActionType = {
   SET_DINNER_DATA: 'data/setDinnerData',
   SET_CONTACT_DATA: ' data/setContactData',
   CLEAR_DATA: 'data/clearData',
+  SET_RESERVATION: 'data/reservation',
   SET_CURRENT_STEP: 'step/setCurrentStep'
 };
 
@@ -13,6 +14,10 @@ export const ActionCreator =  {
   setContactData: (contactData) => ({
     type: ActionType.SET_CONTACT_DATA,
     payload: contactData
+  }),
+  setReservation: (reservation) => ({
+    type: ActionType.SET_RESERVATION,
+    payload: reservation
   }),
   clearData: () => ({
     type: ActionType.CLEAR_DATA

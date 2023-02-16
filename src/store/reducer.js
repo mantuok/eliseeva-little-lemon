@@ -15,6 +15,7 @@ const initialState = {
   lastName: '',
   phone: '',
   comment: '',
+  reservations: []
 };
 
 export const reducer =  (state = initialState, action) => {
@@ -40,6 +41,14 @@ export const reducer =  (state = initialState, action) => {
         phone: action.payload.phone,
         comment: action.payload.comment,
       };
+    case ActionType.SET_RESERVATION:
+      return {
+        ...state,
+        reservations: [
+          ...state.reservations,
+        state.date + state.time
+        ]
+      }
     case ActionType.CLEAR_DATA:
       return {
         ...state,

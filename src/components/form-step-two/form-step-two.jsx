@@ -28,6 +28,8 @@ const FormStepTwo = () => {
     evt.preventDefault();
     dispatch(ActionCreator.setContactData(formData));
     dispatch(ActionCreator.setCurrentStep(ReservationStep.Confirmation));
+    dispatch(ActionCreator.setReservation());
+
   };
 
   return (
