@@ -42,16 +42,7 @@ const FormStepOne = () => {
     dispatch(ActionCreator.setDinnerData(formData));
     dispatch(ActionCreator.setCurrentStep(ReservationStep.StepTwo));
   };
-
-  // const handleDateChange = (data, evt) => {
-  //   console.log(evt)
-  //   const name = evt.target.id;
-  //   setFormData({
-  //     ...formData,
-  //     [name]: data
-  //   })
-  // };
-
+  
   return (
     <form className="form">
       <h3 className="form__heading">Step 1 - Enter dinner details</h3>
