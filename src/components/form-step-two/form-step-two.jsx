@@ -3,9 +3,11 @@ import {useDispatch, useSelector} from 'react-redux';
 import {ActionCreator} from '../../store/action';
 import MandatoryHint from '../mandatory-hint/mandatory-hint';
 import { PatternFormat } from 'react-number-format';
+import {submitAPI} from '../../utils/api'
 import {
   ReservationStep
 } from '../../const';
+import { sub } from 'date-fns';
 
 const FormStepTwo = () => {
   const dispatch = useDispatch();
@@ -27,9 +29,10 @@ const FormStepTwo = () => {
   const handleSubmitButtonClick = (evt) => {
     evt.preventDefault();
     dispatch(ActionCreator.setContactData(formData));
-    dispatch(ActionCreator.setCurrentStep(ReservationStep.Confirmation));
-    dispatch(ActionCreator.setReservation());
-
+    if (submitAPI()) {
+      dispatch(ActionCreator.setCurrentStep(ReservationStep.Confirmation));
+      dispatch(ActionCreator.setReservation());
+    }
   };
 
   return (

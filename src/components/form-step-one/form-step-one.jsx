@@ -1,17 +1,19 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {ActionCreator} from '../../store/action';
 import DatePicker from 'react-datepicker';
-import {addDays, setHours, setMinutes} from 'date-fns';
+import {addDays, fromUnixTime} from 'date-fns';
 import Select from 'react-select'
 import "react-datepicker/dist/react-datepicker.css";
 import {
   Occasion,
   ReservationStep,
   GuestNumber,
-  Times
+  // Times
 } from '../../const';
 import MandatoryHint from '../mandatory-hint/mandatory-hint';
+import TimeOptions from '../time-options/time-options';
+import {fetchAPI} from '../../utils/api';
 
 const FormStepOne = () => {
   const dispatch = useDispatch();
@@ -24,25 +26,30 @@ const FormStepOne = () => {
     date: storedDate,
     time: storedTime,
     occasion: storedOccasion,
-    guests: storedGuests
+    guests: storedGuests,
   });
+  const [times, setTimes] = useState([])
   const occasionList = Object.values(Occasion.options);
 
-  const renderSelectOptions = () => {
-    return Times.map((time) => {
-      if (reservations.includes(formData.date + time)) {
-        return ''
-      } else {
-        return <option key={time} value={time}>{time}</option>
-      }
-    })
-  };
+  // const renderSelectOptions = () => {
+  //   return Times.map((time) => {
+  //     if (reservations.includes(formData.date + time)) {
+  //       return ''
+  //     } else {
+  //       return <option key={time} value={time}>{time}</option>
+  //     }
+  //   })
+  // };
 
   const handleNextButtonClick = () => {
     dispatch(ActionCreator.setDinnerData(formData));
     dispatch(ActionCreator.setCurrentStep(ReservationStep.StepTwo));
   };
-  
+
+  useEffect(() => {
+    setTimes(fetchAPI(new Date(formData.date)));
+  }, [formData.date]);
+
   return (
     <form className="form">
       <h3 className="form__heading">Step 1 - Enter dinner details</h3>
@@ -77,8 +84,9 @@ const FormStepOne = () => {
               time: evt.target.value
             })}
           >
-            <option value="" disabled hidden>Time</option>
-            {renderSelectOptions()}
+            <TimeOptions date={formData.date} reservations={reservations} times={times} />
+            {/* <option value="" disabled hidden>Time</option>
+            {renderSelectOptions()} */}
           </select>
         </label>
         <label className="form__field">
