@@ -299,6 +299,15 @@
   @include button-active;
 }
 
+.button:disabled {
+  @include button-disabled;
+}
+
+.button:disabled:hover{
+  color: var(--additional);
+  cursor: auto;
+}
+
 .button__wrapper {
   display: grid;
   grid-template-columns: max-content max-content;

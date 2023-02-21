@@ -2,14 +2,13 @@ import React, {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {ActionCreator} from '../../store/action';
 import DatePicker from 'react-datepicker';
-import {addDays, fromUnixTime} from 'date-fns';
+import {addDays} from 'date-fns';
 import Select from 'react-select'
 import "react-datepicker/dist/react-datepicker.css";
 import {
   Occasion,
   ReservationStep,
-  GuestNumber,
-  // Times
+  GuestNumber
 } from '../../const';
 import MandatoryHint from '../mandatory-hint/mandatory-hint';
 import TimeOptions from '../time-options/time-options';
@@ -28,18 +27,12 @@ const FormStepOne = () => {
     occasion: storedOccasion,
     guests: storedGuests,
   });
-  const [times, setTimes] = useState([])
+  const [times, setTimes] = useState([]);
+  const [validStatus, setValidStatus] = useState({
+    date: formData.date ? true : false,
+    time: formData.time ? true : false
+  });
   const occasionList = Object.values(Occasion.options);
-
-  // const renderSelectOptions = () => {
-  //   return Times.map((time) => {
-  //     if (reservations.includes(formData.date + time)) {
-  //       return ''
-  //     } else {
-  //       return <option key={time} value={time}>{time}</option>
-  //     }
-  //   })
-  // };
 
   const handleNextButtonClick = () => {
     dispatch(ActionCreator.setDinnerData(formData));
@@ -49,6 +42,20 @@ const FormStepOne = () => {
   useEffect(() => {
     setTimes(fetchAPI(new Date(formData.date)));
   }, [formData.date]);
+
+  const handleOnBlur = (type) => {
+    if (!formData[type]) {
+      setValidStatus({
+        ...validStatus,
+        [type]: false
+      })
+    } else {
+      setValidStatus({
+        ...validStatus,
+        [type]: true
+      })
+    }
+  };
 
   return (
     <form className="form">
@@ -64,10 +71,17 @@ const FormStepOne = () => {
             placeholderText="Date"
             dateFormat="yyyy/MM/dd"
             selected={formData.date} 
-            onChange={(date) => setFormData({
-              ...formData,
-              date: date
-            })}
+            onChange={(date) => {
+              setFormData({
+                ...formData,
+                date: date
+              })
+              setValidStatus({
+                ...validStatus,
+                date: true
+              })
+            }}
+            onBlur={() => handleOnBlur("date")}
             minDate={new Date()}
             maxDate={addDays(new Date(), 30)}
           />
@@ -77,16 +91,19 @@ const FormStepOne = () => {
           <span className="visually-hidden">Mandatory field</span>
           <select 
             className="form__timepicker"
-            placeholder="Time"
             value={formData.time}
-            onChange={(evt) => setFormData({
-              ...formData,
-              time: evt.target.value
-            })}
-          >
+            onChange={(evt) => {
+                setFormData({
+                  ...formData,
+                  time: evt.target.value
+                })
+                setValidStatus({
+                  ...validStatus,
+                  time: true
+                })
+              }
+            }>
             <TimeOptions date={formData.date} reservations={reservations} times={times} />
-            {/* <option value="" disabled hidden>Time</option>
-            {renderSelectOptions()} */}
           </select>
         </label>
         <label className="form__field">
@@ -158,6 +175,7 @@ const FormStepOne = () => {
         <button 
           className="button button--next"
           onClick={handleNextButtonClick}
+          disabled={!validStatus.date || !validStatus.time}
         >
           Next
         </button>

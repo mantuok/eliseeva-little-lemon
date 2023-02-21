@@ -1,7 +1,7 @@
 import React from 'react';
-import {
-  Times
-} from '../../const';
+// import {
+//   Times
+// } from '../../const';
 
 const TimeOptions = (props) => {
   const {date, reservations, times} = props;

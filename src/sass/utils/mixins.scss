@@ -65,6 +65,11 @@
   background-color: var(--button-contrast);
 }
 
+@mixin button-disabled {
+  color: var(--additional);
+  background-color: var(--neutral);
+}
+
 @mixin asterisk {
   content: "";
   position: absolute;

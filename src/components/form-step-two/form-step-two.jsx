@@ -7,7 +7,7 @@ import {submitAPI} from '../../utils/api'
 import {
   ReservationStep
 } from '../../const';
-import { sub } from 'date-fns';
+// import { sub } from 'date-fns';
 
 const FormStepTwo = () => {
   const dispatch = useDispatch();
@@ -21,8 +21,14 @@ const FormStepTwo = () => {
     phone: storedPhone,
     comment: storedComment
   });
+  const [validStatus, setValidStatus] = useState({
+    firstName: formData.firstName ? true : false,
+    lastName: formData.lastName ? true : false,
+    phone: formData.phone ? true : false,
+  });
 
   const handleBackButtonClick = () => {
+    dispatch(ActionCreator.setContactData(formData));
     dispatch(ActionCreator.setCurrentStep(ReservationStep.StepOne))
   };
 
@@ -32,6 +38,20 @@ const FormStepTwo = () => {
     if (submitAPI()) {
       dispatch(ActionCreator.setCurrentStep(ReservationStep.Confirmation));
       dispatch(ActionCreator.setReservation());
+    }
+  };
+
+  const handleOnBlur = (type) => {
+    if (!formData[type]) {
+      setValidStatus({
+        ...validStatus,
+        [type]: false
+      })
+    } else {
+      setValidStatus({
+        ...validStatus,
+        [type]: true
+      })
     }
   };
 
@@ -50,6 +70,7 @@ const FormStepTwo = () => {
               ...formData,
               firstName: evt.target.value
             })}
+            onBlur={() => handleOnBlur("firstName")}
           />
         </label>
         <label className="form__field">
@@ -63,6 +84,7 @@ const FormStepTwo = () => {
               ...formData,
               lastName: evt.target.value
             })}
+            onBlur={() => handleOnBlur("lastName")}
           />
         </label>
         <label className="form__field">
@@ -74,12 +96,12 @@ const FormStepTwo = () => {
             format="###-###-####"
             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
             mask="_"
-            required
             value={formData.phone}
             onChange={(evt) => setFormData({
               ...formData,
               phone: evt.target.value
             })}
+            onBlur={() => handleOnBlur("phone")}
           />
         </label>
         <label className="form__field">
@@ -106,6 +128,7 @@ const FormStepTwo = () => {
         <button 
           className="button button--submit"
           onClick={handleSubmitButtonClick}
+          disabled={!validStatus.firstName || !validStatus.lastName || !validStatus.phone}
         >
           Submit
         </button>
