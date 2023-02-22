@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {ActionCreator} from '../../store/action';
 import MandatoryHint from '../mandatory-hint/mandatory-hint';
 import { PatternFormat } from 'react-number-format';
+import classNames from 'classnames';
 import {submitAPI} from '../../utils/api'
 import {
   ReservationStep
@@ -21,10 +22,14 @@ const FormStepTwo = () => {
     comment: storedComment
   });
   const [validStatus, setValidStatus] = useState({
-    firstName: formData.firstName ? true : false,
-    lastName: formData.lastName ? true : false,
-    phone: formData.phone ? true : false,
+    firstName: formData.firstName ? true : null,
+    lastName: formData.lastName ? true : null,
+    phone: formData.phone ? true : null,
   });
+
+  const firstNameClass = classNames("form__first-name", {"form__field--invalid": validStatus.firstName === false});
+  const lastNameClass = classNames("form__last-name", {"form__field--invalid": validStatus.lastName === false});
+  const phoneClass = classNames("form__phone-number", {"form__field--invalid": validStatus.phone === false});
 
   const handleBackButtonClick = () => {
     dispatch(ActionCreator.setContactData(formData));
@@ -76,7 +81,7 @@ const FormStepTwo = () => {
           <span className="form__label form-label--first-name">First Name</span>
           <span className="visually-hidden">Mandatory field</span>
           <input
-            className="form__first-name"
+            className={firstNameClass}
             placeholder="Enter first name..."
             value={formData.firstName}
             onChange={(evt) => { 
@@ -96,7 +101,7 @@ const FormStepTwo = () => {
           <span className="form__label form-label--last-name">Last Name</span>
           <span className="visually-hidden">Mandatory field</span>
           <input
-            className="form__last-name"
+            className={lastNameClass}
             placeholder="Enter last name..."
             value={formData.lastName}
             onChange={(evt) => { 
@@ -116,7 +121,7 @@ const FormStepTwo = () => {
           <span className="form__label form-label--phone-number">Phone number</span>
           <span className="visually-hidden">Mandatory field</span>
           <PatternFormat
-            className="form__phone-number"
+            className={phoneClass}
             placeholder="Enter phone number..."
             format="###-###-####"
             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"

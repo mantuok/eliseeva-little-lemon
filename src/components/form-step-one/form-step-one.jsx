@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {ActionCreator} from '../../store/action';
 import DatePicker from 'react-datepicker';
 import {addDays} from 'date-fns';
+import classNames from 'classnames';
 import Select from 'react-select'
 import "react-datepicker/dist/react-datepicker.css";
 import {
@@ -29,19 +30,22 @@ const FormStepOne = () => {
   });
   const [times, setTimes] = useState([]);
   const [validStatus, setValidStatus] = useState({
-    date: formData.date ? true : false,
-    time: formData.time ? true : false
+    date: formData.date ? true : null,
+    time: formData.time ? true : null
   });
   const occasionList = Object.values(Occasion.options);
+
+  useEffect(() => {
+    setTimes(fetchAPI(new Date(formData.date)));
+  }, [formData.date]);
+
+  const timepickerClass = classNames("form__timepicker", {"form__field--invalid": validStatus.time === false});
+  const datepickerClass = classNames("form__datepicker", {"form__field--invalid": validStatus.date === false});
 
   const handleNextButtonClick = () => {
     dispatch(ActionCreator.setDinnerData(formData));
     dispatch(ActionCreator.setCurrentStep(ReservationStep.StepTwo));
   };
-
-  useEffect(() => {
-    setTimes(fetchAPI(new Date(formData.date)));
-  }, [formData.date]);
 
   const handleOnBlur = (type) => {
     if (!formData[type]) {
@@ -67,7 +71,7 @@ const FormStepOne = () => {
           <DatePicker 
             portalId="root-portal"
             id="date"
-            className="form__datepicker"
+            className={datepickerClass}
             placeholderText="Date"
             dateFormat="yyyy/MM/dd"
             selected={formData.date} 
@@ -90,7 +94,7 @@ const FormStepOne = () => {
           <span className="form__label form__label--timepicker">Select time</span>
           <span className="visually-hidden">Mandatory field</span>
           <select 
-            className="form__timepicker"
+            className={timepickerClass}
             value={formData.time}
             onChange={(evt) => {
                 setFormData({
