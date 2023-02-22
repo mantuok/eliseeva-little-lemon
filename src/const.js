@@ -102,36 +102,3 @@ export const GuestNumber = {
   threeSix: 'three-six',
   moreThanSix: 'more-than-six'
 }
-
-export const Times = ['4:00 PM', '5:00 PM', '6:00 PM', '7:00 PM', '8:00 PM', '9:00 PM', '10:00 PM']
-
-// export const Time = {
-//   fourPM: {
-//     label: '4:00 PM',
-//     available: true
-//   },
-//   fivePM: {
-//     label: '5:00 PM',
-//     available: true
-//   },
-//   sixPM: {
-//     label: '6:00 PM',
-//     available: true
-//   },
-//   sevenPM: {
-//     label: '7:00 PM',
-//     available: true
-//   },
-//   eightPM: {
-//     label: '8:00 PM',
-//     available: true
-//   },
-//   ninePM: {
-//     label: '9:00 PM',
-//     available: true
-//   },
-//   tenPM: {
-//     label: '10:00 PM',
-//     available: true
-//   }
-// };

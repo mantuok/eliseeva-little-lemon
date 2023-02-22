@@ -7,7 +7,7 @@ import {
 } from '../../const';
 import NavigationList from '../navigation-list/navigation-list';
 
-const NavigationHeader = (props) => {
+const NavigationHeader = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const handleMenuButtonClick = () => {
