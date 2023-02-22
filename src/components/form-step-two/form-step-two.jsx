@@ -7,7 +7,6 @@ import {submitAPI} from '../../utils/api'
 import {
   ReservationStep
 } from '../../const';
-// import { sub } from 'date-fns';
 
 const FormStepTwo = () => {
   const dispatch = useDispatch();
@@ -55,6 +54,20 @@ const FormStepTwo = () => {
     }
   };
 
+  const handlePhoneBlur = () => {
+    if (/[0-9]{3}-[0-9]{3}-[0-9]{4}/.test(formData.phone)) {
+      setValidStatus({
+        ...validStatus,
+        phone: true
+      })
+    } else {
+      setValidStatus({
+        ...validStatus,
+        phone: false
+      })
+    }
+  };
+
   return (
     <form className="form">
       <h3 className="form__heading">Step 2 - Enter contact details</h3>
@@ -66,10 +79,16 @@ const FormStepTwo = () => {
             className="form__first-name"
             placeholder="Enter first name..."
             value={formData.firstName}
-            onChange={(evt) => setFormData({
-              ...formData,
-              firstName: evt.target.value
-            })}
+            onChange={(evt) => { 
+              setFormData({
+                ...formData,
+                firstName: evt.target.value
+              })
+              setValidStatus({
+                ...validStatus,
+                firstName: true
+              })
+          }}
             onBlur={() => handleOnBlur("firstName")}
           />
         </label>
@@ -80,10 +99,16 @@ const FormStepTwo = () => {
             className="form__last-name"
             placeholder="Enter last name..."
             value={formData.lastName}
-            onChange={(evt) => setFormData({
-              ...formData,
-              lastName: evt.target.value
-            })}
+            onChange={(evt) => { 
+                setFormData({
+                  ...formData,
+                  lastName: evt.target.value
+                })
+                setValidStatus({
+                  ...validStatus,
+                  lastName: true
+                })
+            }}
             onBlur={() => handleOnBlur("lastName")}
           />
         </label>
@@ -95,13 +120,15 @@ const FormStepTwo = () => {
             placeholder="Enter phone number..."
             format="###-###-####"
             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-            mask="_"
+            mask="#"
             value={formData.phone}
-            onChange={(evt) => setFormData({
-              ...formData,
-              phone: evt.target.value
-            })}
-            onBlur={() => handleOnBlur("phone")}
+            onChange={(evt) => { 
+              setFormData({
+                ...formData,
+                phone: evt.target.value
+              })
+            }}
+            onBlur={handlePhoneBlur}
           />
         </label>
         <label className="form__field">
