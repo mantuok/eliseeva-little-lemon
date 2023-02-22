@@ -180,6 +180,7 @@ const FormStepOne = () => {
           className="button button--next"
           onClick={handleNextButtonClick}
           disabled={!validStatus.date || !validStatus.time}
+          aria-label="Next"
         >
           Next
         </button>

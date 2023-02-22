@@ -14,7 +14,7 @@ const FormStepTwo = () => {
   const storedFirstName = useSelector((state) => state.firstName);
   const storedLastName = useSelector((state) => state.lastName);
   const storedPhone = useSelector((state) => state.phone);
-  const storedComment = useSelector((state) => state.storedComment);
+  const storedComment = useSelector((state) => state.comment);
   const [formData, setFormData] = useState({
     firstName: storedFirstName,
     lastName: storedLastName,
@@ -154,6 +154,7 @@ const FormStepTwo = () => {
         <button 
           className="button button--back"
           onClick={handleBackButtonClick}
+          aria-label="Back"
         >
           Back
         </button>
@@ -161,6 +162,7 @@ const FormStepTwo = () => {
           className="button button--submit"
           onClick={handleSubmitButtonClick}
           disabled={!validStatus.firstName || !validStatus.lastName || !validStatus.phone}
+          aria-label="Submit"
         >
           Submit
         </button>
